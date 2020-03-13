@@ -1,0 +1,666 @@
+<!doctype html>
+<html style='font-size:16px !important'>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>HTML entities</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fff;
+    --control-text-color: #777;
+}
+
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+/* cyrillic-ext */
+/* cyrillic */
+/* greek-ext */
+/* greek */
+/* vietnamese */
+/* latin-ext */
+/* latin */
+html {
+    font-size: 14px;
+}
+
+body {
+    font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif !important;
+    color: #34495e;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6rem;
+    letter-spacing: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+#write {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 20px 30px 100px;
+}
+
+#write p {
+    line-height: 1.6rem;
+    word-spacing: .05rem;
+}
+
+#write ol li {
+    text-indent: 0.5rem;
+}
+
+#write > ul:first-child,
+#write > ol:first-child {
+    margin-top: 30px;
+}
+
+body > *:first-child {
+    margin-top: 0 !important;
+}
+
+body > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+a {
+    color: #42b983;
+    font-weight: 600;
+    padding: 0 2px;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit !important;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit !important;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit !important;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit !important;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit !important;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit !important;
+}
+
+h2 a,
+h3 a {
+    color: #34495e;
+}
+
+h1 {
+    padding-bottom: .4rem;
+    font-size: 2.2rem;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.75rem;
+    line-height: 1.225;
+    margin: 35px 0 15px;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+h3 {
+    font-size: 1.4rem;
+    line-height: 1.43;
+    margin: 20px 0 7px;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 1rem;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li > ol,
+li > ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+body > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+    margin-top: 0;
+}
+
+li p.first {
+    display: inline-block;
+}
+
+ul,
+ol {
+    padding-left: 30px;
+}
+
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+
+blockquote {
+    border-left: 4px solid #42b983;
+    padding: 10px 15px;
+    color: #777;
+    background-color: rgba(66, 185, 131, .1);
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #fafafa;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr td {
+    border: 1px solid #dfe2e5;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+#write strong {
+    padding: 0 1px;
+}
+
+#write em {
+    padding: 0 5px 0 2px;
+}
+
+#write table thead th {
+    background-color: #f2f2f2;
+}
+
+#write .CodeMirror-gutters {
+    border-right: none;
+}
+
+#write .md-fences {
+    border: 1px solid #F4F4F4;
+    -webkit-font-smoothing: initial;
+    margin: 0.8rem 0 !important;
+    padding: 0.3rem 0 !important;
+    line-height: 1.43rem;
+    background-color: #F8F8F8 !important;
+    border-radius: 2px;
+    font-family: Roboto Mono, Source Sans Pro, Monaco, courier, monospace !important;
+    font-size: 0.85rem;
+    word-wrap: normal;
+}
+
+#write .CodeMirror-wrap .CodeMirror-code pre {
+    padding-left: 12px;
+}
+
+#write code, tt {
+    margin: 0 2px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-family: Roboto Mono, Source Sans Pro, Monaco, courier, monospace !important;
+    font-size: 0.92rem;
+    color: #e96900;
+    background-color: #f8f8f8;
+}
+
+#write .md-footnote {
+    background-color: #f8f8f8;
+    color: #e96900;
+}
+
+/* heighlight. */
+#write mark {
+    background-color: #EBFFEB;
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    color: #222;
+    font-weight: 500;
+}
+
+#write del {
+    padding: 1px 2px;
+}
+
+.cm-s-inner .cm-link,
+.cm-s-inner.cm-link {
+    color: #22a2c9;
+}
+
+.cm-s-inner .cm-string {
+    color: #22a2c9;
+}
+
+.md-task-list-item > input {
+    margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+    background-color: #f8f8f8;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block > .code-tooltip {
+    bottom: .375rem;
+}
+
+#write > h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write > h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write > h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write > h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image > .md-meta {
+    border-radius: 3px;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+    padding: 2px 0 0 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: inherit;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#md-notification:before {
+    top: 10px;
+}
+
+/** focus mode */
+
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h1 align="center"><details>HTML 实体<summary>HTML entities</summary></details></h1><p><span>源网页 </span><a href='https://unicode-table.com/cn/html-entities/'><span>https://unicode-table.com/cn/html-entities/</span></a></p><figure><table><thead><tr><th style='text-align:center;' ><span>符号</span></th><th style='text-align:center;' ><span>表达式</span></th><th style='text-align:center;' ><span>描述</span></th><th style='text-align:center;' ><span>符号</span></th><th style='text-align:center;' ><span>表达式</span></th><th style='text-align:center;' ><span>描述</span></th></tr></thead><tbody><tr><td style='text-align:center;' >&quot;</td><td style='text-align:center;' ><span>&amp;</span><span>quot;</span></td><td style='text-align:center;' ><span>引号</span></td><td style='text-align:center;' >&amp;</td><td style='text-align:center;' ><span>&amp;</span><span>amp;</span></td><td style='text-align:center;' ><span>与号</span></td></tr><tr><td style='text-align:center;' >&apos;</td><td style='text-align:center;' ><span>&amp;</span><span>apos;</span></td><td style='text-align:center;' ><span>撇号</span></td><td style='text-align:center;' >&lt;</td><td style='text-align:center;' ><span>&amp;</span><span>lt;</span></td><td style='text-align:center;' ><span>小于号</span></td></tr><tr><td style='text-align:center;' >&gt;</td><td style='text-align:center;' ><span>&amp;</span><span>gt;</span></td><td style='text-align:center;' ><span>大于号</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' ><span>&amp;</span><span>nbsp;</span></td><td style='text-align:center;' ><span>无中断空格</span></td></tr><tr><td style='text-align:center;' >&iexcl;</td><td style='text-align:center;' ><span>&amp;</span><span>iexcl;</span></td><td style='text-align:center;' ><span>竖翻叹号</span></td><td style='text-align:center;' >&cent;</td><td style='text-align:center;' ><span>&amp;</span><span>cent;</span></td><td style='text-align:center;' ><span>分币标记</span></td></tr><tr><td style='text-align:center;' >&pound;</td><td style='text-align:center;' ><span>&amp;</span><span>pound;</span></td><td style='text-align:center;' ><span>英镑标记</span></td><td style='text-align:center;' >&curren;</td><td style='text-align:center;' ><span>&amp;</span><span>curren;</span></td><td style='text-align:center;' ><span>货币标记</span></td></tr><tr><td style='text-align:center;' >&yen;</td><td style='text-align:center;' ><span>&amp;</span><span>yen;</span></td><td style='text-align:center;' ><span>日元标记</span></td><td style='text-align:center;' >&brvbar;</td><td style='text-align:center;' ><span>&amp;</span><span>brvbar;</span></td><td style='text-align:center;' ><span>间断条</span></td></tr><tr><td style='text-align:center;' >&sect;</td><td style='text-align:center;' ><span>&amp;</span><span>sect;</span></td><td style='text-align:center;' ><span>节标记</span></td><td style='text-align:center;' >&uml;</td><td style='text-align:center;' ><span>&amp;</span><span>uml;</span></td><td style='text-align:center;' ><span>分音符</span></td></tr><tr><td style='text-align:center;' >&copy;</td><td style='text-align:center;' ><span>&amp;</span><span>copy;</span></td><td style='text-align:center;' ><span>版权所有标记</span></td><td style='text-align:center;' >&ordf;</td><td style='text-align:center;' ><span>&amp;</span><span>ordf;</span></td><td style='text-align:center;' ><span>阴性顺序指示符</span></td></tr><tr><td style='text-align:center;' >&laquo;</td><td style='text-align:center;' ><span>&amp;</span><span>laquo;</span></td><td style='text-align:center;' ><span>左指双尖引号</span></td><td style='text-align:center;' >&not;</td><td style='text-align:center;' ><span>&amp;</span><span>not;</span></td><td style='text-align:center;' ><span>非标记</span></td></tr><tr><td style='text-align:center;' >&shy;</td><td style='text-align:center;' ><span>&amp;</span><span>shy;</span></td><td style='text-align:center;' ><span>软连字符</span></td><td style='text-align:center;' >&reg;</td><td style='text-align:center;' ><span>&amp;</span><span>reg;</span></td><td style='text-align:center;' ><span>注册标记</span></td></tr><tr><td style='text-align:center;' >&macr;</td><td style='text-align:center;' ><span>&amp;</span><span>macr;</span></td><td style='text-align:center;' ><span>长音符</span></td><td style='text-align:center;' >&deg;</td><td style='text-align:center;' ><span>&amp;</span><span>deg;</span></td><td style='text-align:center;' ><span>度标记</span></td></tr><tr><td style='text-align:center;' >&plusmn;</td><td style='text-align:center;' ><span>&amp;</span><span>plusmn;</span></td><td style='text-align:center;' ><span>正负号</span></td><td style='text-align:center;' >&sup2;</td><td style='text-align:center;' ><span>&amp;</span><span>sup2;</span></td><td style='text-align:center;' ><span>上标二</span></td></tr><tr><td style='text-align:center;' >&sup3;</td><td style='text-align:center;' ><span>&amp;</span><span>sup3;</span></td><td style='text-align:center;' ><span>上标三</span></td><td style='text-align:center;' >&acute;</td><td style='text-align:center;' ><span>&amp;</span><span>acute;</span></td><td style='text-align:center;' ><span>锐音符</span></td></tr><tr><td style='text-align:center;' >&micro;</td><td style='text-align:center;' ><span>&amp;</span><span>micro;</span></td><td style='text-align:center;' ><span>微单位标记</span></td><td style='text-align:center;' >&para;</td><td style='text-align:center;' ><span>&amp;</span><span>para;</span></td><td style='text-align:center;' ><span>段落标记</span></td></tr><tr><td style='text-align:center;' >&middot;</td><td style='text-align:center;' ><span>&amp;</span><span>middot;</span></td><td style='text-align:center;' ><span>中间点</span></td><td style='text-align:center;' >&cedil;</td><td style='text-align:center;' ><span>&amp;</span><span>cedil;</span></td><td style='text-align:center;' ><span>软音符</span></td></tr><tr><td style='text-align:center;' >&sup1;</td><td style='text-align:center;' ><span>&amp;</span><span>sup1;</span></td><td style='text-align:center;' ><span>上标一</span></td><td style='text-align:center;' >&ordm;</td><td style='text-align:center;' ><span>&amp;</span><span>ordm;</span></td><td style='text-align:center;' ><span>阳性顺序指示符</span></td></tr><tr><td style='text-align:center;' >&raquo;</td><td style='text-align:center;' ><span>&amp;</span><span>raquo;</span></td><td style='text-align:center;' ><span>右指双尖引号</span></td><td style='text-align:center;' >&frac14;</td><td style='text-align:center;' ><span>&amp;</span><span>frac14;</span></td><td style='text-align:center;' ><span>普通分数四分之一</span></td></tr><tr><td style='text-align:center;' >&frac12;</td><td style='text-align:center;' ><span>&amp;</span><span>frac12;</span></td><td style='text-align:center;' ><span>普通分数二分之一</span></td><td style='text-align:center;' >&frac34;</td><td style='text-align:center;' ><span>&amp;</span><span>frac34;</span></td><td style='text-align:center;' ><span>普通分数四分之三</span></td></tr><tr><td style='text-align:center;' >&iquest;</td><td style='text-align:center;' ><span>&amp;</span><span>iquest;</span></td><td style='text-align:center;' ><span>竖翻问号</span></td><td style='text-align:center;' >&Agrave;</td><td style='text-align:center;' ><span>&amp;</span><span>Agrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文大写字母A</span></td></tr><tr><td style='text-align:center;' >&Aacute;</td><td style='text-align:center;' ><span>&amp;</span><span>Aacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文大写字母A</span></td><td style='text-align:center;' >&Acirc;</td><td style='text-align:center;' ><span>&amp;</span><span>Acirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文大写字母A</span></td></tr><tr><td style='text-align:center;' >&Atilde;</td><td style='text-align:center;' ><span>&amp;</span><span>Atilde;</span></td><td style='text-align:center;' ><span>颚化符拉丁文大写字母A</span></td><td style='text-align:center;' >&Auml;</td><td style='text-align:center;' ><span>&amp;</span><span>Auml;</span></td><td style='text-align:center;' ><span>分音符拉丁文大写字母A</span></td></tr><tr><td style='text-align:center;' >&Aring;</td><td style='text-align:center;' ><span>&amp;</span><span>Aring;</span></td><td style='text-align:center;' ><span>上圆圈拉丁文大写字母A</span></td><td style='text-align:center;' >&AElig;</td><td style='text-align:center;' ><span>&amp;</span><span>AElig;</span></td><td style='text-align:center;' ><span>拉丁文大写字母Ae</span></td></tr><tr><td style='text-align:center;' >&Ccedil;</td><td style='text-align:center;' ><span>&amp;</span><span>Ccedil;</span></td><td style='text-align:center;' ><span>软音符拉丁文大写字母C</span></td><td style='text-align:center;' >&Egrave;</td><td style='text-align:center;' ><span>&amp;</span><span>Egrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文大写字母E</span></td></tr><tr><td style='text-align:center;' >&Eacute;</td><td style='text-align:center;' ><span>&amp;</span><span>Eacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文大写字母E</span></td><td style='text-align:center;' >&Ecirc;</td><td style='text-align:center;' ><span>&amp;</span><span>Ecirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文大写字母E</span></td></tr><tr><td style='text-align:center;' >&Euml;</td><td style='text-align:center;' ><span>&amp;</span><span>Euml;</span></td><td style='text-align:center;' ><span>分音符拉丁文大写字母E</span></td><td style='text-align:center;' >&Igrave;</td><td style='text-align:center;' ><span>&amp;</span><span>Igrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文大写字母I</span></td></tr><tr><td style='text-align:center;' >&Iacute;</td><td style='text-align:center;' ><span>&amp;</span><span>Iacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文大写字母I</span></td><td style='text-align:center;' >&Icirc;</td><td style='text-align:center;' ><span>&amp;</span><span>Icirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文大写字母I</span></td></tr><tr><td style='text-align:center;' >&Iuml;</td><td style='text-align:center;' ><span>&amp;</span><span>Iuml;</span></td><td style='text-align:center;' ><span>分音符拉丁文大写字母I</span></td><td style='text-align:center;' >&ETH;</td><td style='text-align:center;' ><span>&amp;</span><span>ETH;</span></td><td style='text-align:center;' ><span>拉丁文大写字母Eth</span></td></tr><tr><td style='text-align:center;' >&Ntilde;</td><td style='text-align:center;' ><span>&amp;</span><span>Ntilde;</span></td><td style='text-align:center;' ><span>颚化符拉丁文大写字母N</span></td><td style='text-align:center;' >&Ograve;</td><td style='text-align:center;' ><span>&amp;</span><span>Ograve;</span></td><td style='text-align:center;' ><span>抑音符拉丁文大写字母O</span></td></tr><tr><td style='text-align:center;' >&Oacute;</td><td style='text-align:center;' ><span>&amp;</span><span>Oacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文大写字母O</span></td><td style='text-align:center;' >&Ocirc;</td><td style='text-align:center;' ><span>&amp;</span><span>Ocirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文大写字母O</span></td></tr><tr><td style='text-align:center;' >&Otilde;</td><td style='text-align:center;' ><span>&amp;</span><span>Otilde;</span></td><td style='text-align:center;' ><span>颚化符拉丁文大写字母O</span></td><td style='text-align:center;' >&Ouml;</td><td style='text-align:center;' ><span>&amp;</span><span>Ouml;</span></td><td style='text-align:center;' ><span>分音符拉丁文大写字母O</span></td></tr><tr><td style='text-align:center;' >&times;</td><td style='text-align:center;' ><span>&amp;</span><span>times;</span></td><td style='text-align:center;' ><span>乘号</span></td><td style='text-align:center;' >&Oslash;</td><td style='text-align:center;' ><span>&amp;</span><span>Oslash;</span></td><td style='text-align:center;' ><span>粗线拉丁文大写字母O</span></td></tr><tr><td style='text-align:center;' >&Ugrave;</td><td style='text-align:center;' ><span>&amp;</span><span>Ugrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文大写字母U</span></td><td style='text-align:center;' >&Uacute;</td><td style='text-align:center;' ><span>&amp;</span><span>Uacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文大写字母U</span></td></tr><tr><td style='text-align:center;' >&Ucirc;</td><td style='text-align:center;' ><span>&amp;</span><span>Ucirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文大写字母U</span></td><td style='text-align:center;' >&Uuml;</td><td style='text-align:center;' ><span>&amp;</span><span>Uuml;</span></td><td style='text-align:center;' ><span>分音符拉丁文大写字母U</span></td></tr><tr><td style='text-align:center;' >&Yacute;</td><td style='text-align:center;' ><span>&amp;</span><span>Yacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文大写字母Y</span></td><td style='text-align:center;' >&THORN;</td><td style='text-align:center;' ><span>&amp;</span><span>THORN;</span></td><td style='text-align:center;' ><span>拉丁文大写字母Thorn</span></td></tr><tr><td style='text-align:center;' >&szlig;</td><td style='text-align:center;' ><span>&amp;</span><span>szlig;</span></td><td style='text-align:center;' ><span>拉丁文小写字母清音S</span></td><td style='text-align:center;' >&agrave;</td><td style='text-align:center;' ><span>&amp;</span><span>agrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文小写字母A</span></td></tr><tr><td style='text-align:center;' >&aacute;</td><td style='text-align:center;' ><span>&amp;</span><span>aacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文小写字母A</span></td><td style='text-align:center;' >&acirc;</td><td style='text-align:center;' ><span>&amp;</span><span>acirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文小写字母A</span></td></tr><tr><td style='text-align:center;' >&atilde;</td><td style='text-align:center;' ><span>&amp;</span><span>atilde;</span></td><td style='text-align:center;' ><span>颚化符拉丁文小写字母A</span></td><td style='text-align:center;' >&auml;</td><td style='text-align:center;' ><span>&amp;</span><span>auml;</span></td><td style='text-align:center;' ><span>分音符拉丁文小写字母A</span></td></tr><tr><td style='text-align:center;' >&aring;</td><td style='text-align:center;' ><span>&amp;</span><span>aring;</span></td><td style='text-align:center;' ><span>上圆圈拉丁文小写字母A</span></td><td style='text-align:center;' >&aelig;</td><td style='text-align:center;' ><span>&amp;</span><span>aelig;</span></td><td style='text-align:center;' ><span>拉丁文小写字母Ae</span></td></tr><tr><td style='text-align:center;' >&ccedil;</td><td style='text-align:center;' ><span>&amp;</span><span>ccedil;</span></td><td style='text-align:center;' ><span>软音符拉丁文小写字母C</span></td><td style='text-align:center;' >&egrave;</td><td style='text-align:center;' ><span>&amp;</span><span>egrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文小写字母E</span></td></tr><tr><td style='text-align:center;' >&eacute;</td><td style='text-align:center;' ><span>&amp;</span><span>eacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文小写字母E</span></td><td style='text-align:center;' >&ecirc;</td><td style='text-align:center;' ><span>&amp;</span><span>ecirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文小写字母E</span></td></tr><tr><td style='text-align:center;' >&euml;</td><td style='text-align:center;' ><span>&amp;</span><span>euml;</span></td><td style='text-align:center;' ><span>分音符拉丁文小写字母E</span></td><td style='text-align:center;' >&igrave;</td><td style='text-align:center;' ><span>&amp;</span><span>igrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文小写字母I</span></td></tr><tr><td style='text-align:center;' >&iacute;</td><td style='text-align:center;' ><span>&amp;</span><span>iacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文小写字母I</span></td><td style='text-align:center;' >&icirc;</td><td style='text-align:center;' ><span>&amp;</span><span>icirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文小写字母I</span></td></tr><tr><td style='text-align:center;' >&iuml;</td><td style='text-align:center;' ><span>&amp;</span><span>iuml;</span></td><td style='text-align:center;' ><span>分音符拉丁文小写字母I</span></td><td style='text-align:center;' >&eth;</td><td style='text-align:center;' ><span>&amp;</span><span>eth;</span></td><td style='text-align:center;' ><span>拉丁文小写字母Eth</span></td></tr><tr><td style='text-align:center;' >&ntilde;</td><td style='text-align:center;' ><span>&amp;</span><span>ntilde;</span></td><td style='text-align:center;' ><span>颚化符拉丁文小写字母N</span></td><td style='text-align:center;' >&ograve;</td><td style='text-align:center;' ><span>&amp;</span><span>ograve;</span></td><td style='text-align:center;' ><span>抑音符拉丁文小写字母O</span></td></tr><tr><td style='text-align:center;' >&oacute;</td><td style='text-align:center;' ><span>&amp;</span><span>oacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文小写字母O</span></td><td style='text-align:center;' >&ocirc;</td><td style='text-align:center;' ><span>&amp;</span><span>ocirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文小写字母O</span></td></tr><tr><td style='text-align:center;' >&otilde;</td><td style='text-align:center;' ><span>&amp;</span><span>otilde;</span></td><td style='text-align:center;' ><span>颚化符拉丁文小写字母O</span></td><td style='text-align:center;' >&ouml;</td><td style='text-align:center;' ><span>&amp;</span><span>ouml;</span></td><td style='text-align:center;' ><span>分音符拉丁文小写字母O</span></td></tr><tr><td style='text-align:center;' >&divide;</td><td style='text-align:center;' ><span>&amp;</span><span>divide;</span></td><td style='text-align:center;' ><span>除号</span></td><td style='text-align:center;' >&oslash;</td><td style='text-align:center;' ><span>&amp;</span><span>oslash;</span></td><td style='text-align:center;' ><span>粗线拉丁文小写字母O</span></td></tr><tr><td style='text-align:center;' >&ugrave;</td><td style='text-align:center;' ><span>&amp;</span><span>ugrave;</span></td><td style='text-align:center;' ><span>抑音符拉丁文小写字母U</span></td><td style='text-align:center;' >&uacute;</td><td style='text-align:center;' ><span>&amp;</span><span>uacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文小写字母U</span></td></tr><tr><td style='text-align:center;' >&ucirc;</td><td style='text-align:center;' ><span>&amp;</span><span>ucirc;</span></td><td style='text-align:center;' ><span>扬抑符拉丁文小写字母U</span></td><td style='text-align:center;' >&uuml;</td><td style='text-align:center;' ><span>&amp;</span><span>uuml;</span></td><td style='text-align:center;' ><span>分音符拉丁文小写字母U</span></td></tr><tr><td style='text-align:center;' >&yacute;</td><td style='text-align:center;' ><span>&amp;</span><span>yacute;</span></td><td style='text-align:center;' ><span>锐音符拉丁文小写字母Y</span></td><td style='text-align:center;' >&thorn;</td><td style='text-align:center;' ><span>&amp;</span><span>thorn;</span></td><td style='text-align:center;' ><span>拉丁文小写字母Thorn</span></td></tr><tr><td style='text-align:center;' >&yuml;</td><td style='text-align:center;' ><span>&amp;</span><span>yuml;</span></td><td style='text-align:center;' ><span>分音符拉丁文小写字母Y</span></td><td style='text-align:center;' >&OElig;</td><td style='text-align:center;' ><span>&amp;</span><span>OElig;</span></td><td style='text-align:center;' ><span>拉丁文大写连字Oe</span></td></tr><tr><td style='text-align:center;' >&oelig;</td><td style='text-align:center;' ><span>&amp;</span><span>oelig;</span></td><td style='text-align:center;' ><span>拉丁文小型连字Oe</span></td><td style='text-align:center;' >&Scaron;</td><td style='text-align:center;' ><span>&amp;</span><span>Scaron;</span></td><td style='text-align:center;' ><span>抑扬符拉丁文大写字母S</span></td></tr><tr><td style='text-align:center;' >&scaron;</td><td style='text-align:center;' ><span>&amp;</span><span>scaron;</span></td><td style='text-align:center;' ><span>抑扬符拉丁文小写字母S</span></td><td style='text-align:center;' >&Yuml;</td><td style='text-align:center;' ><span>&amp;</span><span>Yuml;</span></td><td style='text-align:center;' ><span>分音符拉丁文大写字母Y</span></td></tr><tr><td style='text-align:center;' >&fnof;</td><td style='text-align:center;' ><span>&amp;</span><span>fnof;</span></td><td style='text-align:center;' ><span>钩拉丁文小写字母F</span></td><td style='text-align:center;' >&circ;</td><td style='text-align:center;' ><span>&amp;</span><span>circ;</span></td><td style='text-align:center;' ><span>修饰字母扬抑符</span></td></tr><tr><td style='text-align:center;' >&tilde;</td><td style='text-align:center;' ><span>&amp;</span><span>tilde;</span></td><td style='text-align:center;' ><span>小型颚化符</span></td><td style='text-align:center;' >&Alpha;</td><td style='text-align:center;' ><span>&amp;</span><span>Alpha;</span></td><td style='text-align:center;' ><span>希腊文大写字母Alpha</span></td></tr><tr><td style='text-align:center;' >&Beta;</td><td style='text-align:center;' ><span>&amp;</span><span>Beta;</span></td><td style='text-align:center;' ><span>希腊文大写字母Beta</span></td><td style='text-align:center;' >&Gamma;</td><td style='text-align:center;' ><span>&amp;</span><span>Gamma;</span></td><td style='text-align:center;' ><span>希腊文大写字母Gamma</span></td></tr><tr><td style='text-align:center;' >&Delta;</td><td style='text-align:center;' ><span>&amp;</span><span>Delta;</span></td><td style='text-align:center;' ><span>希腊文大写字母Delta</span></td><td style='text-align:center;' >&Epsilon;</td><td style='text-align:center;' ><span>&amp;</span><span>Epsilon;</span></td><td style='text-align:center;' ><span>希腊文大写字母Epsilon</span></td></tr><tr><td style='text-align:center;' >&Zeta;</td><td style='text-align:center;' ><span>&amp;</span><span>Zeta;</span></td><td style='text-align:center;' ><span>希腊文大写字母Zeta</span></td><td style='text-align:center;' >&Eta;</td><td style='text-align:center;' ><span>&amp;</span><span>Eta;</span></td><td style='text-align:center;' ><span>希腊文大写字母Eta</span></td></tr><tr><td style='text-align:center;' >&Theta;</td><td style='text-align:center;' ><span>&amp;</span><span>Theta;</span></td><td style='text-align:center;' ><span>希腊文大写字母Theta</span></td><td style='text-align:center;' >&Iota;</td><td style='text-align:center;' ><span>&amp;</span><span>Iota;</span></td><td style='text-align:center;' ><span>希腊文大写字母Iota</span></td></tr><tr><td style='text-align:center;' >&Kappa;</td><td style='text-align:center;' ><span>&amp;</span><span>Kappa;</span></td><td style='text-align:center;' ><span>希腊文大写字母Kappa</span></td><td style='text-align:center;' >&Lambda;</td><td style='text-align:center;' ><span>&amp;</span><span>Lambda;</span></td><td style='text-align:center;' ><span>希腊文大写字母Lamda</span></td></tr><tr><td style='text-align:center;' >&Mu;</td><td style='text-align:center;' ><span>&amp;</span><span>Mu;</span></td><td style='text-align:center;' ><span>希腊文大写字母Mu</span></td><td style='text-align:center;' >&Nu;</td><td style='text-align:center;' ><span>&amp;</span><span>Nu;</span></td><td style='text-align:center;' ><span>希腊文大写字母Nu</span></td></tr><tr><td style='text-align:center;' >&Xi;</td><td style='text-align:center;' ><span>&amp;</span><span>Xi;</span></td><td style='text-align:center;' ><span>希腊文大写字母Xi</span></td><td style='text-align:center;' >&Omicron;</td><td style='text-align:center;' ><span>&amp;</span><span>Omicron;</span></td><td style='text-align:center;' ><span>希腊文大写字母Omicron</span></td></tr><tr><td style='text-align:center;' >&Pi;</td><td style='text-align:center;' ><span>&amp;</span><span>Pi;</span></td><td style='text-align:center;' ><span>希腊文大写字母Pi</span></td><td style='text-align:center;' >&Rho;</td><td style='text-align:center;' ><span>&amp;</span><span>Rho;</span></td><td style='text-align:center;' ><span>希腊文大写字母Rho</span></td></tr><tr><td style='text-align:center;' >&Sigma;</td><td style='text-align:center;' ><span>&amp;</span><span>Sigma;</span></td><td style='text-align:center;' ><span>希腊文大写字母Sigma</span></td><td style='text-align:center;' >&Tau;</td><td style='text-align:center;' ><span>&amp;</span><span>Tau;</span></td><td style='text-align:center;' ><span>希腊文大写字母Tau</span></td></tr><tr><td style='text-align:center;' >&Upsilon;</td><td style='text-align:center;' ><span>&amp;</span><span>Upsilon;</span></td><td style='text-align:center;' ><span>希腊文大写字母Upsilon</span></td><td style='text-align:center;' >&Phi;</td><td style='text-align:center;' ><span>&amp;</span><span>Phi;</span></td><td style='text-align:center;' ><span>希腊文大写字母Phi</span></td></tr><tr><td style='text-align:center;' >&Chi;</td><td style='text-align:center;' ><span>&amp;</span><span>Chi;</span></td><td style='text-align:center;' ><span>希腊文大写字母Chi</span></td><td style='text-align:center;' >&Psi;</td><td style='text-align:center;' ><span>&amp;</span><span>Psi;</span></td><td style='text-align:center;' ><span>希腊文大写字母Psi</span></td></tr><tr><td style='text-align:center;' >&Omega;</td><td style='text-align:center;' ><span>&amp;</span><span>Omega;</span></td><td style='text-align:center;' ><span>希腊文大写字母Omega</span></td><td style='text-align:center;' >&alpha;</td><td style='text-align:center;' ><span>&amp;</span><span>alpha;</span></td><td style='text-align:center;' ><span>希腊文小写字母Alpha</span></td></tr><tr><td style='text-align:center;' >&beta;</td><td style='text-align:center;' ><span>&amp;</span><span>beta;</span></td><td style='text-align:center;' ><span>希腊文小写字母Beta</span></td><td style='text-align:center;' >&gamma;</td><td style='text-align:center;' ><span>&amp;</span><span>gamma;</span></td><td style='text-align:center;' ><span>希腊文小写字母Gamma</span></td></tr><tr><td style='text-align:center;' >&delta;</td><td style='text-align:center;' ><span>&amp;</span><span>delta;</span></td><td style='text-align:center;' ><span>希腊文小写字母Delta</span></td><td style='text-align:center;' >&epsilon;</td><td style='text-align:center;' ><span>&amp;</span><span>epsilon;</span></td><td style='text-align:center;' ><span>希腊文小写字母Epsilon</span></td></tr><tr><td style='text-align:center;' >&zeta;</td><td style='text-align:center;' ><span>&amp;</span><span>zeta;</span></td><td style='text-align:center;' ><span>希腊文小写字母Zeta</span></td><td style='text-align:center;' >&eta;</td><td style='text-align:center;' ><span>&amp;</span><span>eta;</span></td><td style='text-align:center;' ><span>希腊文小写字母Eta</span></td></tr><tr><td style='text-align:center;' >&theta;</td><td style='text-align:center;' ><span>&amp;</span><span>theta;</span></td><td style='text-align:center;' ><span>希腊文小写字母Theta</span></td><td style='text-align:center;' >&iota;</td><td style='text-align:center;' ><span>&amp;</span><span>iota;</span></td><td style='text-align:center;' ><span>希腊文小写字母Iota</span></td></tr><tr><td style='text-align:center;' >&kappa;</td><td style='text-align:center;' ><span>&amp;</span><span>kappa;</span></td><td style='text-align:center;' ><span>希腊文小写字母Kappa</span></td><td style='text-align:center;' >&lambda;</td><td style='text-align:center;' ><span>&amp;</span><span>lambda;</span></td><td style='text-align:center;' ><span>希腊文小写字母Lamda</span></td></tr><tr><td style='text-align:center;' >&mu;</td><td style='text-align:center;' ><span>&amp;</span><span>mu;</span></td><td style='text-align:center;' ><span>希腊文小写字母Mu</span></td><td style='text-align:center;' >&nu;</td><td style='text-align:center;' ><span>&amp;</span><span>nu;</span></td><td style='text-align:center;' ><span>希腊文小写字母Nu</span></td></tr><tr><td style='text-align:center;' >&xi;</td><td style='text-align:center;' ><span>&amp;</span><span>xi;</span></td><td style='text-align:center;' ><span>希腊文小写字母Xi</span></td><td style='text-align:center;' >&omicron;</td><td style='text-align:center;' ><span>&amp;</span><span>omicron;</span></td><td style='text-align:center;' ><span>希腊文小写字母Omicron</span></td></tr><tr><td style='text-align:center;' >&pi;</td><td style='text-align:center;' ><span>&amp;</span><span>pi;</span></td><td style='text-align:center;' ><span>希腊文小写字母Pi</span></td><td style='text-align:center;' >&rho;</td><td style='text-align:center;' ><span>&amp;</span><span>rho;</span></td><td style='text-align:center;' ><span>希腊文小写字母Rho</span></td></tr><tr><td style='text-align:center;' >&sigmaf;</td><td style='text-align:center;' ><span>&amp;</span><span>sigmaf;</span></td><td style='text-align:center;' ><span>希腊文小写字母词尾Sigma</span></td><td style='text-align:center;' >&sigma;</td><td style='text-align:center;' ><span>&amp;</span><span>sigma;</span></td><td style='text-align:center;' ><span>希腊文小写字母Sigma</span></td></tr><tr><td style='text-align:center;' >&tau;</td><td style='text-align:center;' ><span>&amp;</span><span>tau;</span></td><td style='text-align:center;' ><span>希腊文小写字母Tau</span></td><td style='text-align:center;' >&upsilon;</td><td style='text-align:center;' ><span>&amp;</span><span>upsilon;</span></td><td style='text-align:center;' ><span>希腊文小写字母Upsilon</span></td></tr><tr><td style='text-align:center;' >&phi;</td><td style='text-align:center;' ><span>&amp;</span><span>phi;</span></td><td style='text-align:center;' ><span>希腊文小写字母Phi</span></td><td style='text-align:center;' >&chi;</td><td style='text-align:center;' ><span>&amp;</span><span>chi;</span></td><td style='text-align:center;' ><span>希腊文小写字母Chi</span></td></tr><tr><td style='text-align:center;' >&psi;</td><td style='text-align:center;' ><span>&amp;</span><span>psi;</span></td><td style='text-align:center;' ><span>希腊文小写字母Psi</span></td><td style='text-align:center;' >&omega;</td><td style='text-align:center;' ><span>&amp;</span><span>omega;</span></td><td style='text-align:center;' ><span>希腊文小写字母Omega</span></td></tr><tr><td style='text-align:center;' >&thetasym;</td><td style='text-align:center;' ><span>&amp;</span><span>thetasym;</span></td><td style='text-align:center;' ><span>希腊文Theta符号</span></td><td style='text-align:center;' >&upsih;</td><td style='text-align:center;' ><span>&amp;</span><span>upsih;</span></td><td style='text-align:center;' ><span>钩形符号希腊文Upsilon</span></td></tr><tr><td style='text-align:center;' >&piv;</td><td style='text-align:center;' ><span>&amp;</span><span>piv;</span></td><td style='text-align:center;' ><span>希腊文Pi符号</span></td><td style='text-align:center;' >&ensp;</td><td style='text-align:center;' ><span>&amp;</span><span>ensp;</span></td><td style='text-align:center;' ><span>En间隔</span></td></tr><tr><td style='text-align:center;' >&emsp;</td><td style='text-align:center;' ><span>&amp;</span><span>emsp;</span></td><td style='text-align:center;' ><span>Em间隔</span></td><td style='text-align:center;' >&thinsp;</td><td style='text-align:center;' ><span>&amp;</span><span>thinsp;</span></td><td style='text-align:center;' ><span>窄间隔</span></td></tr><tr><td style='text-align:center;' >&zwnj;</td><td style='text-align:center;' ><span>&amp;</span><span>zwnj;</span></td><td style='text-align:center;' ><span>零宽无连接符</span></td><td style='text-align:center;' >&zwj;</td><td style='text-align:center;' ><span>&amp;</span><span>zwj;</span></td><td style='text-align:center;' ><span>零宽连接符</span></td></tr><tr><td style='text-align:center;' >&lrm;</td><td style='text-align:center;' ><span>&amp;</span><span>lrm;</span></td><td style='text-align:center;' ><span>从左至右标志</span></td><td style='text-align:center;' >&rlm;</td><td style='text-align:center;' ><span>&amp;</span><span>rlm;</span></td><td style='text-align:center;' ><span>从右至左标志</span></td></tr><tr><td style='text-align:center;' >&ndash;</td><td style='text-align:center;' ><span>&amp;</span><span>ndash;</span></td><td style='text-align:center;' ><span>En长划</span></td><td style='text-align:center;' >&mdash;</td><td style='text-align:center;' ><span>&amp;</span><span>mdash;</span></td><td style='text-align:center;' ><span>Em长划</span></td></tr><tr><td style='text-align:center;' >&lsquo;</td><td style='text-align:center;' ><span>&amp;</span><span>lsquo;</span></td><td style='text-align:center;' ><span>左单引号</span></td><td style='text-align:center;' >&rsquo;</td><td style='text-align:center;' ><span>&amp;</span><span>rsquo;</span></td><td style='text-align:center;' ><span>右单引号</span></td></tr><tr><td style='text-align:center;' >&sbquo;</td><td style='text-align:center;' ><span>&amp;</span><span>sbquo;</span></td><td style='text-align:center;' ><span>单下9形引号</span></td><td style='text-align:center;' >&ldquo;</td><td style='text-align:center;' ><span>&amp;</span><span>ldquo;</span></td><td style='text-align:center;' ><span>左双引号</span></td></tr><tr><td style='text-align:center;' >&rdquo;</td><td style='text-align:center;' ><span>&amp;</span><span>rdquo;</span></td><td style='text-align:center;' ><span>右双引号</span></td><td style='text-align:center;' >&bdquo;</td><td style='text-align:center;' ><span>&amp;</span><span>bdquo;</span></td><td style='text-align:center;' ><span>双下9形引号</span></td></tr><tr><td style='text-align:center;' >&dagger;</td><td style='text-align:center;' ><span>&amp;</span><span>dagger;</span></td><td style='text-align:center;' ><span>剑号</span></td><td style='text-align:center;' >&Dagger;</td><td style='text-align:center;' ><span>&amp;</span><span>Dagger;</span></td><td style='text-align:center;' ><span>双剑号</span></td></tr><tr><td style='text-align:center;' >&bull;</td><td style='text-align:center;' ><span>&amp;</span><span>bull;</span></td><td style='text-align:center;' ><span>加重号</span></td><td style='text-align:center;' >&hellip;</td><td style='text-align:center;' ><span>&amp;</span><span>hellip;</span></td><td style='text-align:center;' ><span>水平省略号</span></td></tr><tr><td style='text-align:center;' >&permil;</td><td style='text-align:center;' ><span>&amp;</span><span>permil;</span></td><td style='text-align:center;' ><span>千分号</span></td><td style='text-align:center;' >&prime;</td><td style='text-align:center;' ><span>&amp;</span><span>prime;</span></td><td style='text-align:center;' ><span>上标符</span></td></tr><tr><td style='text-align:center;' >&Prime;</td><td style='text-align:center;' ><span>&amp;</span><span>Prime;</span></td><td style='text-align:center;' ><span>双上标符</span></td><td style='text-align:center;' >&lsaquo;</td><td style='text-align:center;' ><span>&amp;</span><span>lsaquo;</span></td><td style='text-align:center;' ><span>单左指尖引号</span></td></tr><tr><td style='text-align:center;' >&rsaquo;</td><td style='text-align:center;' ><span>&amp;</span><span>rsaquo;</span></td><td style='text-align:center;' ><span>单右指尖引号</span></td><td style='text-align:center;' >&oline;</td><td style='text-align:center;' ><span>&amp;</span><span>oline;</span></td><td style='text-align:center;' ><span>上横线</span></td></tr><tr><td style='text-align:center;' >&frasl;</td><td style='text-align:center;' ><span>&amp;</span><span>frasl;</span></td><td style='text-align:center;' ><span>分数斜线号</span></td><td style='text-align:center;' >&euro;</td><td style='text-align:center;' ><span>&amp;</span><span>euro;</span></td><td style='text-align:center;' ><span>欧元符号</span></td></tr><tr><td style='text-align:center;' >&image;</td><td style='text-align:center;' ><span>&amp;</span><span>image;</span></td><td style='text-align:center;' ><span>黑花体字大写I</span></td><td style='text-align:center;' >&weierp;</td><td style='text-align:center;' ><span>&amp;</span><span>weierp;</span></td><td style='text-align:center;' ><span>手写体大写P</span></td></tr><tr><td style='text-align:center;' >&real;</td><td style='text-align:center;' ><span>&amp;</span><span>real;</span></td><td style='text-align:center;' ><span>黑花体字大写R</span></td><td style='text-align:center;' >&trade;</td><td style='text-align:center;' ><span>&amp;</span><span>trade;</span></td><td style='text-align:center;' ><span>商标标记</span></td></tr><tr><td style='text-align:center;' >&alefsym;</td><td style='text-align:center;' ><span>&amp;</span><span>alefsym;</span></td><td style='text-align:center;' ><span>Alef符号</span></td><td style='text-align:center;' >&larr;</td><td style='text-align:center;' ><span>&amp;</span><span>larr;</span></td><td style='text-align:center;' ><span>向左箭头</span></td></tr><tr><td style='text-align:center;' >&uarr;</td><td style='text-align:center;' ><span>&amp;</span><span>uarr;</span></td><td style='text-align:center;' ><span>向上箭头</span></td><td style='text-align:center;' >&rarr;</td><td style='text-align:center;' ><span>&amp;</span><span>rarr;</span></td><td style='text-align:center;' ><span>向右箭头</span></td></tr><tr><td style='text-align:center;' >&darr;</td><td style='text-align:center;' ><span>&amp;</span><span>darr;</span></td><td style='text-align:center;' ><span>向下箭头</span></td><td style='text-align:center;' >&harr;</td><td style='text-align:center;' ><span>&amp;</span><span>harr;</span></td><td style='text-align:center;' ><span>左右箭头</span></td></tr><tr><td style='text-align:center;' >&crarr;</td><td style='text-align:center;' ><span>&amp;</span><span>crarr;</span></td><td style='text-align:center;' ><span>角朝左向下箭头</span></td><td style='text-align:center;' >&lArr;</td><td style='text-align:center;' ><span>&amp;</span><span>lArr;</span></td><td style='text-align:center;' ><span>向左双箭头</span></td></tr><tr><td style='text-align:center;' >&uArr;</td><td style='text-align:center;' ><span>&amp;</span><span>uArr;</span></td><td style='text-align:center;' ><span>向上双箭头</span></td><td style='text-align:center;' >&rArr;</td><td style='text-align:center;' ><span>&amp;</span><span>rArr;</span></td><td style='text-align:center;' ><span>向右双箭头</span></td></tr><tr><td style='text-align:center;' >&dArr;</td><td style='text-align:center;' ><span>&amp;</span><span>dArr;</span></td><td style='text-align:center;' ><span>向下双箭头</span></td><td style='text-align:center;' >&hArr;</td><td style='text-align:center;' ><span>&amp;</span><span>hArr;</span></td><td style='text-align:center;' ><span>左右双箭头</span></td></tr><tr><td style='text-align:center;' >&forall;</td><td style='text-align:center;' ><span>&amp;</span><span>forall;</span></td><td style='text-align:center;' ><span>对于全部</span></td><td style='text-align:center;' >&part;</td><td style='text-align:center;' ><span>&amp;</span><span>part;</span></td><td style='text-align:center;' ><span>偏微分</span></td></tr><tr><td style='text-align:center;' >&exist;</td><td style='text-align:center;' ><span>&amp;</span><span>exist;</span></td><td style='text-align:center;' ><span>存在</span></td><td style='text-align:center;' >&empty;</td><td style='text-align:center;' ><span>&amp;</span><span>empty;</span></td><td style='text-align:center;' ><span>空集</span></td></tr><tr><td style='text-align:center;' >&nabla;</td><td style='text-align:center;' ><span>&amp;</span><span>nabla;</span></td><td style='text-align:center;' ><span>劈形算符</span></td><td style='text-align:center;' >&isin;</td><td style='text-align:center;' ><span>&amp;</span><span>isin;</span></td><td style='text-align:center;' ><span>元素</span></td></tr><tr><td style='text-align:center;' >&notin;</td><td style='text-align:center;' ><span>&amp;</span><span>notin;</span></td><td style='text-align:center;' ><span>不是元素</span></td><td style='text-align:center;' >&ni;</td><td style='text-align:center;' ><span>&amp;</span><span>ni;</span></td><td style='text-align:center;' ><span>包含</span></td></tr><tr><td style='text-align:center;' >&prod;</td><td style='text-align:center;' ><span>&amp;</span><span>prod;</span></td><td style='text-align:center;' ><span>N元乘积</span></td><td style='text-align:center;' >&sum;</td><td style='text-align:center;' ><span>&amp;</span><span>sum;</span></td><td style='text-align:center;' ><span>N元求和</span></td></tr><tr><td style='text-align:center;' >&minus;</td><td style='text-align:center;' ><span>&amp;</span><span>minus;</span></td><td style='text-align:center;' ><span>负号</span></td><td style='text-align:center;' >&lowast;</td><td style='text-align:center;' ><span>&amp;</span><span>lowast;</span></td><td style='text-align:center;' ><span>星号运算符</span></td></tr><tr><td style='text-align:center;' >&radic;</td><td style='text-align:center;' ><span>&amp;</span><span>radic;</span></td><td style='text-align:center;' ><span>平方根</span></td><td style='text-align:center;' >&prop;</td><td style='text-align:center;' ><span>&amp;</span><span>prop;</span></td><td style='text-align:center;' ><span>比例</span></td></tr><tr><td style='text-align:center;' >&infin;</td><td style='text-align:center;' ><span>&amp;</span><span>infin;</span></td><td style='text-align:center;' ><span>无穷大</span></td><td style='text-align:center;' >&ang;</td><td style='text-align:center;' ><span>&amp;</span><span>ang;</span></td><td style='text-align:center;' ><span>角</span></td></tr><tr><td style='text-align:center;' >&and;</td><td style='text-align:center;' ><span>&amp;</span><span>and;</span></td><td style='text-align:center;' ><span>逻辑与</span></td><td style='text-align:center;' >&or;</td><td style='text-align:center;' ><span>&amp;</span><span>or;</span></td><td style='text-align:center;' ><span>逻辑或</span></td></tr><tr><td style='text-align:center;' >&cap;</td><td style='text-align:center;' ><span>&amp;</span><span>cap;</span></td><td style='text-align:center;' ><span>交集</span></td><td style='text-align:center;' >&cup;</td><td style='text-align:center;' ><span>&amp;</span><span>cup;</span></td><td style='text-align:center;' ><span>并集</span></td></tr><tr><td style='text-align:center;' >&int;</td><td style='text-align:center;' ><span>&amp;</span><span>int;</span></td><td style='text-align:center;' ><span>积分</span></td><td style='text-align:center;' >&there4;</td><td style='text-align:center;' ><span>&amp;</span><span>there4;</span></td><td style='text-align:center;' ><span>所以</span></td></tr><tr><td style='text-align:center;' >&sim;</td><td style='text-align:center;' ><span>&amp;</span><span>sim;</span></td><td style='text-align:center;' ><span>颚化符运算符</span></td><td style='text-align:center;' >&cong;</td><td style='text-align:center;' ><span>&amp;</span><span>cong;</span></td><td style='text-align:center;' ><span>近似等于</span></td></tr><tr><td style='text-align:center;' >&asymp;</td><td style='text-align:center;' ><span>&amp;</span><span>asymp;</span></td><td style='text-align:center;' ><span>约等于</span></td><td style='text-align:center;' >&ne;</td><td style='text-align:center;' ><span>&amp;</span><span>ne;</span></td><td style='text-align:center;' ><span>不等于</span></td></tr><tr><td style='text-align:center;' >&equiv;</td><td style='text-align:center;' ><span>&amp;</span><span>equiv;</span></td><td style='text-align:center;' ><span>恒等于</span></td><td style='text-align:center;' >&le;</td><td style='text-align:center;' ><span>&amp;</span><span>le;</span></td><td style='text-align:center;' ><span>小于或等于</span></td></tr><tr><td style='text-align:center;' >&ge;</td><td style='text-align:center;' ><span>&amp;</span><span>ge;</span></td><td style='text-align:center;' ><span>大于或等于</span></td><td style='text-align:center;' >&sub;</td><td style='text-align:center;' ><span>&amp;</span><span>sub;</span></td><td style='text-align:center;' ><span>子集</span></td></tr><tr><td style='text-align:center;' >&sup;</td><td style='text-align:center;' ><span>&amp;</span><span>sup;</span></td><td style='text-align:center;' ><span>超集</span></td><td style='text-align:center;' >&nsub;</td><td style='text-align:center;' ><span>&amp;</span><span>nsub;</span></td><td style='text-align:center;' ><span>非子集</span></td></tr><tr><td style='text-align:center;' >&sube;</td><td style='text-align:center;' ><span>&amp;</span><span>sube;</span></td><td style='text-align:center;' ><span>子集或等于</span></td><td style='text-align:center;' >&supe;</td><td style='text-align:center;' ><span>&amp;</span><span>supe;</span></td><td style='text-align:center;' ><span>超集或等于</span></td></tr><tr><td style='text-align:center;' >&oplus;</td><td style='text-align:center;' ><span>&amp;</span><span>oplus;</span></td><td style='text-align:center;' ><span>圆圈正号</span></td><td style='text-align:center;' >&otimes;</td><td style='text-align:center;' ><span>&amp;</span><span>otimes;</span></td><td style='text-align:center;' ><span>圆圈乘号</span></td></tr><tr><td style='text-align:center;' >&perp;</td><td style='text-align:center;' ><span>&amp;</span><span>perp;</span></td><td style='text-align:center;' ><span>上丁字</span></td><td style='text-align:center;' >&sdot;</td><td style='text-align:center;' ><span>&amp;</span><span>sdot;</span></td><td style='text-align:center;' ><span>点运算符</span></td></tr><tr><td style='text-align:center;' >&lceil;</td><td style='text-align:center;' ><span>&amp;</span><span>lceil;</span></td><td style='text-align:center;' ><span>左顶棚</span></td><td style='text-align:center;' >&rceil;</td><td style='text-align:center;' ><span>&amp;</span><span>rceil;</span></td><td style='text-align:center;' ><span>右顶棚</span></td></tr><tr><td style='text-align:center;' >&lfloor;</td><td style='text-align:center;' ><span>&amp;</span><span>lfloor;</span></td><td style='text-align:center;' ><span>左地板</span></td><td style='text-align:center;' >&rfloor;</td><td style='text-align:center;' ><span>&amp;</span><span>rfloor;</span></td><td style='text-align:center;' ><span>右地板</span></td></tr><tr><td style='text-align:center;' >&lang;</td><td style='text-align:center;' ><span>&amp;</span><span>lang;</span></td><td style='text-align:center;' ><span>左指尖括号</span></td><td style='text-align:center;' >&rang;</td><td style='text-align:center;' ><span>&amp;</span><span>rang;</span></td><td style='text-align:center;' ><span>右指尖括号</span></td></tr><tr><td style='text-align:center;' >&loz;</td><td style='text-align:center;' ><span>&amp;</span><span>loz;</span></td><td style='text-align:center;' ><span>菱形</span></td><td style='text-align:center;' >&spades;</td><td style='text-align:center;' ><span>&amp;</span><span>spades;</span></td><td style='text-align:center;' ><span>实心黑桃纸牌</span></td></tr><tr><td style='text-align:center;' >&clubs;</td><td style='text-align:center;' ><span>&amp;</span><span>clubs;</span></td><td style='text-align:center;' ><span>实心梅花纸牌</span></td><td style='text-align:center;' >&hearts;</td><td style='text-align:center;' ><span>&amp;</span><span>hearts;</span></td><td style='text-align:center;' ><span>实心红桃纸牌</span></td></tr><tr><td style='text-align:center;' >&diams;</td><td style='text-align:center;' ><span>&amp;</span><span>diams;</span></td><td style='text-align:center;' ><span>实心方块纸牌</span></td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><p>&nbsp;</p></div>
+</body>
+</html>
